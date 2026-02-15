@@ -10,8 +10,10 @@ let entries = [];
 let encoder = null;
 let loading = false;
 
+const DATA_URL = 'https://topdawg619.github.io/knowledge-search/data/index.json';
+const MODEL_ID = 'Xenova/bge-small-en-v1.5';
 async function loadIndex() {
-  const res = await fetch('data/index.json');
+  const res = await fetch(DATA_URL);
   if (!res.ok) {
     throw new Error('Unable to load index');
   }
@@ -20,7 +22,7 @@ async function loadIndex() {
 }
 
 async function initEncoder() {
-  encoder = await pipeline('feature-extraction', 'sentence-transformers/all-MiniLM-L6-v2', { quantized: true });
+  encoder = await pipeline('feature-extraction', MODEL_ID, { quantized: true });
 }
 
 function cosineSimilarity(a, aNorm, b, bNorm) {
