@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentra Knowledge Search</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">Agentra AI Research Vault</p>
+      <h1>Knowledge Search</h1>
+      <p>Semantic search across the Obsidian vault (AI learning library, research briefs, playbooks).</p>
+    </div>
+    <span id="status">Loading model…</span>
+  </header>
+
+  <main>
+    <div class="search-panel">
+      <input type="text" id="query" placeholder="Ask about fine-tuning, design systems, FinOps…" autofocus />
+      <button id="searchBtn">Search</button>
+    </div>
+    <section id="results"></section>
+  </main>
+
+  <footer>
+    <p>Embeddings: sentence-transformers/all-MiniLM-L6-v2 (via fastembed + @xenova/transformers). Data refreshed nightly.</p>
+  </footer>
+</body>
+</html>
